@@ -4,7 +4,6 @@ const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const Sequelize = require('sequelize');
 
 const app = express();
 const router = require('./router');
@@ -16,13 +15,10 @@ app.use(cors()); //you can pass as a parameter to cors only accept requests from
 app.use(bodyParser.json({ type: '*/*' }));
 app.use(helmet());
 app.use(helmet.hidePoweredBy());
+app.use('/assets', express.static('assets'));
 // router(app);
 
 if (process.env.NODE_ENV !== 'production') {
-    // const webpackMiddleware = require('webpack-dev-middleware');
-    // const webpack = require('webpack');
-    // const webpackConfig = require('./webpack.config');
-    // app.use(webpackMiddleware(webpack(webpackConfig)));
     dbInstances.connectToDBInstance();
 } else {
     console.log('production mode enabled');
@@ -30,7 +26,6 @@ if (process.env.NODE_ENV !== 'production') {
     // app.get('*', (req, res) => {
     //     res.sendFile(path.join(__dirname, 'client/dist/index.html'));
     // });
-    /**TODO - add a connection to a production ready postgres db */
 }
 
 const port = process.env.PORT || 3090;
