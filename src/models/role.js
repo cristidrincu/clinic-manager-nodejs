@@ -9,16 +9,25 @@ module.exports = {
       },
       user_id: {
         type: SequelizeORM.UUID,
-        notNull: true
+        defaultValue: SequelizeORM.UUIDV4,
+        allowNull: true
       },
       roleType: {
         type: SequelizeORM.STRING
+      },
+      createdAt: {
+        type:SequelizeORM.DATE,
+        defaultValue: null
+      },
+      updatedAt: {
+        type:SequelizeORM.DATE,
+        defaultValue: null
       }
     },{
       indexes: [
         {
           unique: true,
-          fields: ['id', 'user_id']
+          fields: ['id']
         }
       ]
     });

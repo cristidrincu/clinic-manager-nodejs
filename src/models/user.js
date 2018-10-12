@@ -22,11 +22,6 @@ module.exports = {
         defaultValue: SequelizeORM.UUIDV4,
         allowNull: true
       },
-      user_role_id: {
-        type: SequelizeORM.UUID,
-        defaultValue: SequelizeORM.UUIDV4,
-        allowNull: true
-      },
       firstName: {
         type: SequelizeORM.STRING,
         allowNull: true
@@ -46,12 +41,20 @@ module.exports = {
       experience: {
         type: SequelizeORM.INTEGER,
         allowNull: true
+      },
+      createdAt: {
+        type:SequelizeORM.DATE,
+        defaultValue: null
+      },
+      updatedAt: {
+        type:SequelizeORM.DATE,
+        defaultValue: null
       }
     }, {
       indexes: [
         {
           unique: true,
-          fields: ['id', 'user_type_id', 'user_role_id']
+          fields: ['id', 'user_type_id']
         }
       ]
     });
