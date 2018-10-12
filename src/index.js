@@ -16,19 +16,15 @@ app.use(bodyParser.json({ type: '*/*' }));
 app.use(helmet());
 app.use(helmet.hidePoweredBy());
 app.use('/assets', express.static('assets'));
-// router(app);
+router(app);
 
 if (process.env.NODE_ENV !== 'production') {
     dbInstances.connectToDBInstance();
 } else {
     console.log('production mode enabled');
-    // app.use(express.static('client/dist'));
-    // app.get('*', (req, res) => {
-    //     res.sendFile(path.join(__dirname, 'client/dist/index.html'));
-    // });
 }
 
-const port = process.env.PORT || 3090;
+const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on: ' + port);

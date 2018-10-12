@@ -11,8 +11,6 @@
 
 # Npm specific stuff
 node_modules
-contextual-data
-tests
 
 # Temporary files
 code-that-has-been-extracted
