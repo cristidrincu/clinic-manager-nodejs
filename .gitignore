@@ -11,6 +11,8 @@
 
 # Npm specific stuff
 node_modules
+src/config
+src/configuration
 
 # Temporary files
 code-that-has-been-extracted
