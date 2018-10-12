@@ -1,5 +1,5 @@
 const SequelizeORM = require('sequelize');
-const databaseConfiguration = require('./config').development;
+const databaseConfiguration = require('./node-app-env-db-config').development;
 const sequelizeConn = new SequelizeORM(databaseConfiguration.database.connection.name, databaseConfiguration.database.connection.user, databaseConfiguration.database.connection.password, {
   host: databaseConfiguration.database.connection.host,
   dialect: databaseConfiguration.database.client,

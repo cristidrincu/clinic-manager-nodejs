@@ -1,4 +1,4 @@
-let NodeAppDBConfig = require('../configuration/config');
+let NodeAppDBConfig = require('../configuration/node-app-env-db-config');
 
 module.exports = {
   "development": {
